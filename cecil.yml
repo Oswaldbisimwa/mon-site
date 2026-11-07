@@ -1,0 +1,70 @@
+# Site configuration: https://cecil.app/documentation/configuration/
+title: "OSWALD BISIMWA"
+baseline: "Développeur Web & Informaticien"
+baseurl: "http://localhost:8000"
+description: "Portfolio officiel de Bisimwa Bufole Oswald, développeur web et passionné des nouvelles technologies."
+
+author:
+  name: "Bisimwa Bufole Oswald"
+  email: "oswaldbisimwa07@gmail.com"
+
+date:
+  timezone: "Africa/Lubumbashi"
+
+menus:
+  main:
+    - id: about
+      name: "À propos"
+      url: /about/
+      weight: 1
+    - id: skills
+      name: "Compétences"
+      url: /skills/
+      weight: 2
+    - id: projects
+      name: "Projets"
+      url: /projects/
+      weight: 3
+    - id: contact
+      name: "Contact"
+      url: /contact/
+      weight: 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

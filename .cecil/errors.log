@@ -1,0 +1,18 @@
+[Thu Nov  5 00:47:47 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 00:49:06 2026] [::1]:14697 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:03:40 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 01:05:50 2026] [::1]:1629 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:25:25 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 01:32:06 2026] [::1]:1093 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:32:07 2026] [::1]:1098 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:32:08 2026] [::1]:1102 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:32:08 2026] [::1]:1107 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:32:08 2026] [::1]:1111 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:32:09 2026] [::1]:1115 [404]: GET /favicon.ico - No such file or directory
+[Thu Nov  5 01:38:00 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 01:53:31 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 02:44:16 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 02:49:18 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 02:58:33 2026] Failed to listen on localhost:8080 (reason: Une tentative d’accès à un socket de manière interdite par ses autorisations d’accès a été tentée)
+[Thu Nov  5 03:06:26 2026] PHP 8.3.36 Development Server (http://localhost:8000) started
+[Thu Nov  5 03:13:08 2026] [::1]:1663 [404]: GET /favicon.ico - No such file or directory

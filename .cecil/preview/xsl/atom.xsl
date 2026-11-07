@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:atom="http://www.w3.org/2005/Atom" version="3.0">
+  <xsl:output method="html" version="1.0" encoding="utf-8" indent="yes" />
+  <xsl:template match="/">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <title><xsl:value-of select="atom:feed/atom:title" /> (feed)</title>
+        <style type="text/css">
+          :root {
+            color-scheme: light dark;
+            --bg: #F6F7F9;
+            --surface: #FFFFFF;
+            --text: #4B5563;
+            --muted: #6B7280;
+            --heading: #111827;
+            --accent: #EA6A1A;
+            --accent-soft: #FDEBDD;
+            --link: #1D4ED8;
+            --border: #E5E7EB;
+            --shadow: 0 1px 2px rgb(0 0 0 / .04), 0 4px 16px rgb(0 0 0 / .04);
+            --radius: .75rem;
+          }
+          @media (prefers-color-scheme: dark) {
+            :root {
+              --bg: #0F1115;
+              --surface: #171A21;
+              --text: #A7AFBC;
+              --muted: #7D8590;
+              --heading: #F0F3F6;
+              --accent: #F5893D;
+              --accent-soft: #3A2414;
+              --link: #7AB0FF;
+              --border: #262B34;
+              --shadow: none;
+            }
+          }
+          *, *::before, *::after {
+            box-sizing: border-box;
+          }
+          html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+          }
+          body {
+            margin: 0;
+            padding: clamp(1rem, 4vw, 3rem) 1rem;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+          }
+          main {
+            max-width: 44rem;
+            margin: 0 auto;
+          }
+          a {
+            color: var(--link);
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+            text-underline-offset: .2em;
+          }
+          a:focus-visible, input:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+          }
+          header {
+            margin-bottom: 2rem;
+          }
+          .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .2rem .65rem .2rem .45rem;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: .8125rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+          }
+          .badge svg {
+            width: 1rem;
+            height: 1rem;
+          }
+          h1 {
+            margin: .75rem 0 .25rem;
+            color: var(--heading);
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -.02em;
+          }
+          h1 a {
+            color: inherit;
+          }
+          .description {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.0625rem;
+          }
+          .subscribe {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+          }
+          .subscribe p {
+            margin: 0 0 .75rem;
+          }
+          .subscribe label {
+            display: block;
+            margin-bottom: .35rem;
+            color: var(--heading);
+            font-size: .875rem;
+            font-weight: 600;
+          }
+          .field {
+            display: flex;
+            gap: .5rem;
+          }
+          .subscribe input {
+            flex: 1;
+            min-width: 0;
+            padding: .6rem .75rem;
+            border: 1px solid var(--border);
+            border-radius: .5rem;
+            background: var(--bg);
+            color: var(--heading);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: .875rem;
+          }
+          .copy {
+            flex: none;
+            padding: .6rem 1rem;
+            border: 0;
+            border-radius: .5rem;
+            background: var(--accent);
+            color: #FFFFFF;
+            font: inherit;
+            font-size: .875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: filter .15s ease;
+          }
+          .copy:hover {
+            filter: brightness(1.08);
+          }
+          .copy.copied {
+            background: #16A34A;
+          }
+          h2 {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin: 0 0 .75rem;
+            color: var(--heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+          }
+          .count {
+            padding: 0 .5rem;
+            border-radius: 999px;
+            background: var(--border);
+            color: var(--muted);
+            font-size: .75rem;
+            font-weight: 600;
+            line-height: 1.5rem;
+          }
+          ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+          }
+          li + li {
+            border-top: 1px solid var(--border);
+          }
+          li a {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: .5rem 1rem;
+            padding: .9rem 1.25rem;
+            transition: background-color .15s ease;
+          }
+          li a:hover {
+            background: var(--bg);
+            text-decoration: none;
+          }
+          li h3 {
+            min-width: 0;
+            margin: 0;
+            color: var(--heading);
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+          }
+          li a:hover h3 {
+            color: var(--link);
+          }
+          li time {
+            flex: none;
+            margin-left: auto;
+            color: var(--muted);
+            font-size: .8125rem;
+            font-variant-numeric: tabular-nums;
+          }
+          footer {
+            margin-top: 2rem;
+            color: var(--muted);
+            font-size: .8125rem;
+            text-align: center;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            li a, .copy {
+              transition: none;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <main>
+          <header>
+            <span class="badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <circle cx="6" cy="18" r="2.25" />
+                <path d="M3.75 10.5a9.75 9.75 0 0 1 9.75 9.75h-2.25a7.5 7.5 0 0 0-7.5-7.5z" />
+                <path d="M3.75 3.75a16.5 16.5 0 0 1 16.5 16.5H18A14.25 14.25 0 0 0 3.75 6z" />
+              </svg>
+              Atom
+            </span>
+            <h1><a><xsl:attribute name="href"><xsl:value-of select="atom:feed/atom:link[@rel='alternate']/@href" /></xsl:attribute><xsl:value-of select="atom:feed/atom:title" /></a></h1>
+            <xsl:if test="normalize-space(atom:feed/atom:subtitle)">
+              <p class="description"><xsl:value-of select="atom:feed/atom:subtitle" /></p>
+            </xsl:if>
+            <div class="subscribe">
+              <p>To subscribe to this web feed, copy its URL to your feed reader.</p>
+              <label for="feed-url">Feed URL:</label>
+              <div class="field">
+                <input id="feed-url" onclick="this.select();">
+                  <xsl:attribute name="type">url</xsl:attribute>
+                  <xsl:attribute name="readonly">readonly</xsl:attribute>
+                  <xsl:attribute name="spellcheck">false</xsl:attribute>
+                  <xsl:attribute name="value"><xsl:value-of select="atom:feed/atom:link[@rel='self']/@href" /></xsl:attribute>
+                </input>
+                <button type="button" class="copy" data-target="feed-url" data-copied="Copied!">Copy</button>
+              </div>
+            </div>
+          </header>
+          <section>
+            <h2>Feed’s entries <span class="count"><xsl:value-of select="count(atom:feed/atom:entry)" /></span></h2>
+            <ol>
+              <xsl:for-each select="atom:feed/atom:entry">
+              <li>
+                <a>
+                  <xsl:attribute name="href"><xsl:value-of select="atom:link/@href" /></xsl:attribute>
+                  <h3><xsl:value-of select="atom:title" /></h3>
+                  <time><xsl:attribute name="datetime"><xsl:value-of select="atom:published" /></xsl:attribute><xsl:value-of select="substring(atom:published, 1, 10)" /></time>
+                </a>
+              </li>
+              </xsl:for-each>
+            </ol>
+          </section>
+          <footer>
+            <p>Feed generated by <a href="https://cecil.app/#9.26.1">Cecil v9.26.1</a></p>
+          </footer>
+        </main>
+        <script>
+          <![CDATA[
+          document.querySelectorAll('.copy').forEach(function (button) {
+            var label = button.textContent;
+            button.addEventListener('click', function () {
+              var input = document.getElementById(button.dataset.target);
+              var done = function () {
+                button.textContent = button.dataset.copied;
+                button.classList.add('copied');
+                setTimeout(function () {
+                  button.textContent = label;
+                  button.classList.remove('copied');
+                }, 2000);
+              };
+              if (navigator.clipboard) {
+                navigator.clipboard.writeText(input.value).then(done);
+              } else {
+                input.select();
+                document.execCommand('copy');
+                done();
+              }
+            });
+          });
+          // localized dates
+          if (window.Intl) {
+            var format = new Intl.DateTimeFormat(document.documentElement.lang || undefined, { dateStyle: 'medium', timeZone: 'UTC' });
+            document.querySelectorAll('time[datetime]').forEach(function (time) {
+              var value = time.getAttribute('datetime');
+              var iso = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+              var date = iso ? new Date(Date.UTC(iso[1], iso[2] - 1, iso[3])) : new Date(value + ' UTC');
+              if (!isNaN(date)) {
+                time.textContent = format.format(date);
+              }
+            });
+          }
+          ]]>
+        </script>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

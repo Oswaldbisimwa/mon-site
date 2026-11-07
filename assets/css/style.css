@@ -1,0 +1,183 @@
+/* --- VARIABLES & BASE --- */
+:root {
+    --bg-dark: #0a1128;
+    --bg-card: #121e3d;
+    --primary: #2563eb; /* Bleu électrique */
+    --accent: #f59e0b; /* Doré/Orange */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Effet de lumière en arrière-plan */
+    background-image: radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15), transparent 25%),
+                      radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1), transparent 25%);
+    background-attachment: fixed;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    background-color: rgba(10, 17, 40, 0.8);
+    backdrop-filter: blur(10px); /* Effet verre dépoli */
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.navbar .logo a {
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.navbar .logo a span {
+    color: var(--accent); /* Met le point ou une lettre en doré */
+}
+
+.navbar .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.navbar .menu a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar .menu a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+    display: inline-block;
+}
+
+/* --- CONTENU PRINCIPAL --- */
+.content {
+    flex: 1;
+    max-width: 1100px;
+    width: 90%;
+    margin: 5rem auto;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+/* Liens dans le texte */
+.content a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    border-bottom: 1px dashed var(--primary);
+}
+
+.content a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* --- CARTES (Pour les projets et compétences) --- */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(37, 99, 235, 0.2);
+    border-color: var(--primary);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+/* --- PIED DE PAGE --- */
+.footer {
+    background-color: var(--bg-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--accent);
+    text-decoration: none;
+}

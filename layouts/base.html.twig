@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="{{ url('/') }}">{{ site.title }}<span>.</span></a>
+        </div>
+        <nav class="menu">
+            <ul>
+                {% for item in site.menus.main %}
+                    <li><a href="{{ url(item.url) }}">{{ item.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; {{ "now"|date("Y") }} {{ site.author.name }}. Développé avec passion.</p>
+        <p>Me contacter : <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+    </footer>
+</body>
+</html>

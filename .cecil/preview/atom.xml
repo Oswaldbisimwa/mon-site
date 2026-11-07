@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:8000/xsl/atom.xsl" media="all"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>http://localhost:8000/</id>
+  <title>OSWALD BISIMWA</title>
+  <subtitle><![CDATA[Portfolio officiel de Bisimwa Bufole Oswald, développeur web et passionné des nouvelles technologies.]]></subtitle>
+  <link href="http://localhost:8000/atom.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:8000/" rel="alternate" type="text/html" />
+  <updated>2026-11-05T04:06:23+02:00</updated>
+  <author>
+    <name>Bisimwa Bufole Oswald</name>
+    <uri>http://localhost:8000/</uri>
+  </author>
+  <entry xml:lang="en">
+    <id>http://localhost:8000/contact/</id>
+    <title>Contact</title>
+    <published>2026-11-05T02:28:17+02:00</published>
+    <link href="http://localhost:8000/contact/" rel="alternate" type="text/html" />
+    <content type="html">
+      <![CDATA[<p>Vous avez un projet en tête ou vous souhaitez simplement discuter ? N'hésitez pas à me contacter.</p>
+<ul>
+<li>📧 <strong>Email :</strong> <a href="mailto:oswaldbisimwa07@gmail.com">oswaldbisimwa07@gmail.com</a></li>
+<li>📍 <strong>Localisation :</strong> RDC / Butembo</li>
+<li>💼 <strong>Disponibilité :</strong> Ouvert aux opportunités et missions freelance.</li>
+</ul>]]>
+    </content>
+  </entry>
+  <entry xml:lang="en">
+    <id>http://localhost:8000/projects/</id>
+    <title>Projets</title>
+    <published>2026-11-05T01:34:26+02:00</published>
+    <link href="http://localhost:8000/projects/" rel="alternate" type="text/html" />
+    <content type="html">
+      <![CDATA[<p>Voici une sélection de mes réalisations récentes :</p>
+<h3 id="mon-portfolio">Mon Portfolio<a class="heading-anchor" href="#mon-portfolio" aria-hidden="true" tabindex="-1"></a></h3>
+<p>Ce site même ! Développé avec le générateur statique Cecil, propulsé par PHP 8.3.</p>
+<h3 id="application-de-gestion">Application de Gestion<a class="heading-anchor" href="#application-de-gestion" aria-hidden="true" tabindex="-1"></a></h3>
+<p>Un projet de logiciel de gestion pour une entreprise locale (en cours de développement).</p>]]>
+    </content>
+  </entry>
+  <entry xml:lang="en">
+    <id>http://localhost:8000/skills/</id>
+    <title>Compétences</title>
+    <published>2026-11-05T01:31:04+02:00</published>
+    <link href="http://localhost:8000/skills/" rel="alternate" type="text/html" />
+    <content type="html">
+      <![CDATA[<p>Voici les technologies que je maîtrise et que j'utilise au quotidien :</p>
+<ul>
+<li><strong>Développement Web :</strong> HTML5, CSS3, JavaScript, PHP.</li>
+<li><strong>Bases de données :</strong> MySQL, MariaDB.</li>
+<li><strong>Outils &amp; Environnement :</strong> XAMPP, Git, VS Code, MSYS2.</li>
+<li><strong>Autres :</strong> Génération de sites statiques (Cecil), bases de l'Intelligence Artificielle.</li>
+</ul>]]>
+    </content>
+  </entry>
+  <entry xml:lang="en">
+    <id>http://localhost:8000/about/</id>
+    <title>À propos</title>
+    <published>2026-11-05T01:23:33+02:00</published>
+    <link href="http://localhost:8000/about/" rel="alternate" type="text/html" />
+    <content type="html">
+      <![CDATA[<p>Passionné par l'informatique depuis toujours, j'ai fait de ma passion mon métier. J'accompagne les entreprises et les particuliers dans la création de leurs outils digitaux.</p>
+<p>Actuellement étudiant, je mets mes compétences techniques au service de projets concrets et innovants.</p>]]>
+    </content>
+  </entry>
+</feed>

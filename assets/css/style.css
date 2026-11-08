@@ -181,3 +181,58 @@ p {
     color: var(--accent);
     text-decoration: none;
 }
+/* --- RESPONSIVE DESIGN (MENU MOBILE) --- */
+
+/* On cache la case à cocher et l'icône burger par défaut (sur PC) */
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Les 3 barres du burger */
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent); /* Utilise ton orange/doré */
+    transition: all 0.3s ease;
+}
+
+/* Quand l'écran est plus petit que 768px (tablettes et mobiles) */
+@media (max-width: 768px) {
+    /* On affiche l'icône burger */
+    .menu-icon {
+        display: flex;
+    }
+
+    /* On cache le menu classique en le sortant de l'écran à droite */
+    .navbar .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark); /* Ton fond bleu nuit */
+        padding: 2rem;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: -1;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navbar .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    /* Quand on clique sur le burger (la checkbox est cochée), on fait descendre le menu */
+    .menu-toggle:checked ~ .menu {
+        transform: translateY(0);
+    }
+}

@@ -14,6 +14,17 @@
         <div class="logo">
             <a href="{{ url('/') }}">{{ site.title }}<span>.</span></a>
         </div>
+        
+        <!-- L'interrupteur invisible pour le menu mobile -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        
+        <!-- L'icône burger (visible seulement sur mobile) -->
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
         <nav class="menu">
             <ul>
                 {% for item in site.menus.main %}
